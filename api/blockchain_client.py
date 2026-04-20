@@ -35,3 +35,17 @@ def get_difficulty_history(n_points: int = 100) -> list[dict]:
     response.raise_for_status()
     data = response.json()
     return data.get("values", [])[-n_points:]
+
+
+if __name__ == "__main__":
+    latest = get_latest_block()
+    block = get_block(latest["hash"])
+
+    # The block hash usually starts with leading zeros, which reflects the Proof of Work condition.
+    # The bits field encodes the mining target threshold: a smaller target means higher difficulty.
+    print("Block height:", block["height"])
+    print("Hash:", block["hash"])
+    print("Difficulty:", block["difficulty"])
+    print("Nonce:", block["nonce"])
+    print("Number of transactions:", len(block["tx"]))
+    print("Bits:", block["bits"])
