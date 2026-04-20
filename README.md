@@ -53,7 +53,7 @@ Write here if you are stuck with something.
 pip install -r requirements.txt
 streamlit run app.py
 
-
+## Project Structure
 template-blockchain-dashboard/
 |-- README.md
 |-- requirements.txt
