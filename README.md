@@ -9,9 +9,9 @@ Update this README every week.
 
 | Field | Value |
 |---|---|
-| Student Name | |
-| GitHub Username | |
-| Project Title | |
+| Student Name | CLAUDIA CORONA BLANCO |
+| GitHub Username | claudiacorona065|
+| Project Title |Blockchain Dashboard |
 | Chosen AI Approach | |
 
 ## Module Tracking
