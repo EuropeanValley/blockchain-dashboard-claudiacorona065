@@ -21,7 +21,7 @@ Use one of these values: `Not started`, `In progress`, `Done`
 
 | Module | What it should include | Status |
 |---|---|---|
-| M1 | Proof of Work Monitor | Not started |
+| M1 | Proof of Work Monitor | In progress |
 | M2 | Block Header Analyzer | Not started |
 | M3 | Difficulty History | Not started |
 | M4 | AI Component | Not started |
@@ -30,16 +30,16 @@ Use one of these values: `Not started`, `In progress`, `Done`
 
 Write 3 to 5 short lines about what you have already done.
 
-- Accepted the GitHub Classroom assignment.
-- Opened and reviewed the repository template.
-- Checked the project structure and the module files.
-- Started completing the initial README information.
+- Accepted the GitHub Classroom assignment and reviewed the repository template.
+- Completed the initial README with the project information.
+- Executed the first API call to retrieve real Bitcoin blockchain data.
+- Printed the latest block height, hash, difficulty, nonce, number of transactions, and bits.
 
 ## Next Step
 
 Write the next small step you will do before the next class.
 
-- Create the first Python script to call the blockchain API and print the latest Bitcoin block data.
+- Improve the API script and start connecting the data to the M1 Proof of Work Monitor.
 
 ## Main Problem or Blocker
 
@@ -53,7 +53,8 @@ Write here if you are stuck with something.
 pip install -r requirements.txt
 streamlit run app.py
 ```
-## Project Structure
+
+## Project Sttructure
 ```
 template-blockchain-dashboard/
 |-- README.md
@@ -67,5 +68,4 @@ template-blockchain-dashboard/
     |-- m2_block_header.py
     |-- m3_difficulty_history.py
     `-- m4_ai_component.py
-
 ```
