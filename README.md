@@ -54,18 +54,20 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Project Sttructure
-```
-template-blockchain-dashboard/
+## Project Structure
+
+```text
+blockchain-dashboard-claudiacorona065/
 |-- README.md
 |-- requirements.txt
 |-- .gitignore
 |-- app.py
 |-- api/
+|   |-- __init__.py
 |   `-- blockchain_client.py
 `-- modules/
+    |-- __init__.py
     |-- m1_pow_monitor.py
     |-- m2_block_header.py
     |-- m3_difficulty_history.py
     `-- m4_ai_component.py
-```
