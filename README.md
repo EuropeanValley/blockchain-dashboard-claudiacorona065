@@ -13,7 +13,7 @@ Update this README every week.
 | Student Name | CLAUDIA CORONA BLANCO |
 | GitHub Username | claudiacorona065 |
 | Project Title | Blockchain Dashboard |
-| Chosen AI Approach | Not decided yet |
+| Chosen AI Approach | Anomaly detector for abnormal block inter-arrival times |
 
 ## Module Tracking
 
@@ -24,18 +24,18 @@ Use one of these values: `Not started`, `In progress`, `Done`
 | M1 | Proof of Work Monitor | In progress |
 | M2 | Block Header Analyzer | In progress |
 | M3 | Difficulty History | In progress |
-| M4 | AI Component | Not started |
+| M4 | AI Component | In progress |
 ## Current Progress
 
-- Implemented the first Streamlit version of the M1 Proof of Work Monitor.
-- Implemented the M2 Block Header Analyzer with local Proof of Work verification using hashlib.
-- Reconstructed the 80-byte block header and verified the double SHA-256 hash.
-- Implemented the first M3 Difficulty History module with recent adjustment periods.
-- Added difficulty evolution, adjustment period ratios, and actual block time comparison against the 600-second target.
+- Implemented M1, M2 and M3 in the Streamlit dashboard.
+- Added local Proof of Work verification using hashlib.
+- Implemented the first M4 AI component as an anomaly detector.
+- Used an exponential distribution baseline for Bitcoin block inter-arrival times.
+- Added AI model evaluation with anomaly rate and negative log-likelihood.
 
 ## Next Step
 
-- Create the first M4 AI Component skeleton and decide the AI approach.
+- Add automatic dashboard refresh and improve final visual polish.
 
 ## Main Problem or Blocker
 
