@@ -156,6 +156,27 @@ def get_block_by_height(height: int) -> dict:
     """Return block metadata for a given Bitcoin block height."""
     block_hash = get_block_hash_by_height(height)
     return get_blockstream_block(block_hash)
+
+def get_recent_block_metadata(n_blocks: int = 50) -> list[dict]:
+    """Return metadata for the latest n_blocks using the Blockstream API.
+
+    This function is lighter than get_recent_blocks because it does not download
+    the full transaction list for every block. It is useful for statistical
+    analysis of timestamps, block heights, nonce, bits and transaction counts.
+    """
+    if n_blocks < 2:
+        raise ValueError("n_blocks must be at least 2.")
+
+    latest_summary = get_latest_block()
+    latest_height = int(latest_summary["height"])
+
+    blocks = []
+
+    for height in range(latest_height, latest_height - n_blocks, -1):
+        blocks.append(get_block_by_height(height))
+
+    return blocks
+
 if __name__ == "__main__":
     # First, request the latest block summary from the API.
     latest = get_latest_block()
