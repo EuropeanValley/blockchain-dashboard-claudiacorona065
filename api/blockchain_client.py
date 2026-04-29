@@ -42,7 +42,83 @@ def get_difficulty_history(n_points: int = 100) -> list[dict]:
     response.raise_for_status()
     data = response.json()
     return data.get("values", [])[-n_points:]
+def get_recent_blocks(n_blocks: int = 10) -> list[dict]:
+    """Return the latest n_blocks with full block details.
 
+    The function starts from the latest block and follows the prev_block
+    field backwards through the blockchain.
+    """
+    if n_blocks < 2:
+        raise ValueError("n_blocks must be at least 2 to calculate block intervals.")
+
+    latest_summary = get_latest_block()
+    current_block = get_block(latest_summary["hash"])
+
+    blocks = [current_block]
+
+    while len(blocks) < n_blocks:
+        previous_hash = current_block.get("prev_block")
+
+        if not previous_hash:
+            break
+
+        current_block = get_block(previous_hash)
+        blocks.append(current_block)
+
+    return blocks
+
+
+def bits_to_target(bits: int) -> int:
+    """Convert the compact Bitcoin bits field into a full target integer.
+
+    In Bitcoin, the bits field stores the Proof of Work target in compact form.
+    A valid block hash must be numerically lower than this target.
+    """
+    exponent = bits >> 24
+    coefficient = bits & 0xFFFFFF
+
+    return coefficient * 2 ** (8 * (exponent - 3))
+
+
+def target_to_leading_zero_bits(target: int) -> int:
+    """Estimate the minimum number of leading zero bits implied by a target."""
+    if target <= 0:
+        return 256
+
+    return max(0, 256 - target.bit_length())
+
+
+def count_leading_zero_bits(block_hash: str) -> int:
+    """Count the number of leading zero bits in a 256-bit block hash."""
+    binary_hash = bin(int(block_hash, 16))[2:].zfill(256)
+    return len(binary_hash) - len(binary_hash.lstrip("0"))
+
+
+def calculate_block_intervals(blocks: list[dict]) -> list[int]:
+    """Calculate time differences in seconds between consecutive blocks.
+
+    The blocks are expected in descending order: latest block first.
+    """
+    intervals = []
+
+    for index in range(len(blocks) - 1):
+        current_time = blocks[index]["time"]
+        previous_time = blocks[index + 1]["time"]
+        intervals.append(current_time - previous_time)
+
+    return intervals
+
+
+def estimate_hash_rate(difficulty: float, average_block_time: float) -> float:
+    """Estimate network hash rate in hashes per second.
+
+    The estimate uses the Bitcoin relation:
+    hash_rate ≈ difficulty * 2^32 / average_block_time
+    """
+    if average_block_time <= 0:
+        raise ValueError("average_block_time must be greater than zero.")
+
+    return difficulty * 2**32 / average_block_time
 
 if __name__ == "__main__":
     # First, request the latest block summary from the API.
