@@ -7,7 +7,7 @@ Provides helper functions to fetch blockchain data from public APIs.
 import requests
 
 BASE_URL = "https://blockchain.info"
-
+BLOCKSTREAM_API_URL = "https://blockstream.info/api"
 
 def get_latest_block() -> dict:
     """Return the latest block summary."""
@@ -119,7 +119,43 @@ def estimate_hash_rate(difficulty: float, average_block_time: float) -> float:
         raise ValueError("average_block_time must be greater than zero.")
 
     return difficulty * 2**32 / average_block_time
+def target_to_difficulty(target: int) -> float:
+    """Convert a Proof of Work target into Bitcoin difficulty.
 
+    Bitcoin difficulty is defined relative to the maximum target used at
+    difficulty 1, encoded by the compact bits value 0x1d00ffff.
+    """
+    if target <= 0:
+        raise ValueError("target must be greater than zero.")
+
+    max_target = bits_to_target(0x1D00FFFF)
+    return max_target / target
+
+
+def get_block_hash_by_height(height: int) -> str:
+    """Return the block hash for a given Bitcoin block height."""
+    response = requests.get(
+        f"{BLOCKSTREAM_API_URL}/block-height/{height}",
+        timeout=10,
+    )
+    response.raise_for_status()
+    return response.text.strip()
+
+
+def get_blockstream_block(block_hash: str) -> dict:
+    """Return block metadata from the Blockstream API."""
+    response = requests.get(
+        f"{BLOCKSTREAM_API_URL}/block/{block_hash}",
+        timeout=10,
+    )
+    response.raise_for_status()
+    return response.json()
+
+
+def get_block_by_height(height: int) -> dict:
+    """Return block metadata for a given Bitcoin block height."""
+    block_hash = get_block_hash_by_height(height)
+    return get_blockstream_block(block_hash)
 if __name__ == "__main__":
     # First, request the latest block summary from the API.
     latest = get_latest_block()
