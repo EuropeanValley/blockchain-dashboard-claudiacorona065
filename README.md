@@ -25,21 +25,17 @@ Use one of these values: `Not started`, `In progress`, `Done`
 | M2 | Block Header Analyzer | Not started |
 | M3 | Difficulty History | Not started |
 | M4 | AI Component | Not started |
-
 ## Current Progress
-
-Write 3 to 5 short lines about what you have already done.
 
 - Accepted the GitHub Classroom assignment and reviewed the repository template.
 - Completed the initial README with the project information.
 - Executed the first API call to retrieve real Bitcoin blockchain data.
-- Printed the latest block height, hash, difficulty, nonce, number of transactions, and bits.
+- Implemented the first Streamlit version of the M1 Proof of Work Monitor.
+- Added live difficulty, target, leading zero bits, block interval distribution, and estimated hash rate.
 
 ## Next Step
 
-Write the next small step you will do before the next class.
-
-- Improve the API script and start connecting the data to the M1 Proof of Work Monitor.
+- Start M2 Block Header Analyzer and verify Proof of Work locally using hashlib.
 
 ## Main Problem or Blocker
 
