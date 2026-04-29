@@ -73,15 +73,15 @@ blockchain-dashboard-claudiacorona065/
 
 ### Kick-off Review
 
-Review time: 2026-04-21 09:19 CEST
+Review time: 2026-04-29 20:31 CEST
 Status: Green
 
 Strength:
-- Your repository keeps the expected classroom structure.
+- I can see the dashboard structure integrating the checkpoint modules.
 
 Improve now:
-- The kickoff evidence is strong and aligned with the session goals.
+- M1 still needs clearer evidence of a working Proof of Work monitor in the dashboard.
 
 Next step:
-- Keep building on this start and prepare the next milestone.
+- Turn M1 into a working dashboard view with live Proof of Work metrics, not just a placeholder.
 <!-- student-repo-auditor:teacher-feedback:end -->
