@@ -22,20 +22,20 @@ Use one of these values: `Not started`, `In progress`, `Done`
 | Module | What it should include | Status |
 |---|---|---|
 | M1 | Proof of Work Monitor | In progress |
-| M2 | Block Header Analyzer | Not started |
+| M2 | Block Header Analyzer | In progress |
 | M3 | Difficulty History | Not started |
 | M4 | AI Component | Not started |
 ## Current Progress
 
 - Accepted the GitHub Classroom assignment and reviewed the repository template.
-- Completed the initial README with the project information.
-- Executed the first API call to retrieve real Bitcoin blockchain data.
 - Implemented the first Streamlit version of the M1 Proof of Work Monitor.
 - Added live difficulty, target, leading zero bits, block interval distribution, and estimated hash rate.
+- Implemented the first M2 Block Header Analyzer with local Proof of Work verification.
+- Reconstructed the 80-byte block header and verified the double SHA-256 hash using hashlib.
 
 ## Next Step
 
-- Start M2 Block Header Analyzer and verify Proof of Work locally using hashlib.
+- Start M3 Difficulty History and plot difficulty evolution over recent adjustment periods.
 
 ## Main Problem or Blocker
 
