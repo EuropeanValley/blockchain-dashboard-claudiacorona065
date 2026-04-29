@@ -23,19 +23,19 @@ Use one of these values: `Not started`, `In progress`, `Done`
 |---|---|---|
 | M1 | Proof of Work Monitor | In progress |
 | M2 | Block Header Analyzer | In progress |
-| M3 | Difficulty History | Not started |
+| M3 | Difficulty History | In progress |
 | M4 | AI Component | Not started |
 ## Current Progress
 
-- Accepted the GitHub Classroom assignment and reviewed the repository template.
 - Implemented the first Streamlit version of the M1 Proof of Work Monitor.
-- Added live difficulty, target, leading zero bits, block interval distribution, and estimated hash rate.
-- Implemented the first M2 Block Header Analyzer with local Proof of Work verification.
-- Reconstructed the 80-byte block header and verified the double SHA-256 hash using hashlib.
+- Implemented the M2 Block Header Analyzer with local Proof of Work verification using hashlib.
+- Reconstructed the 80-byte block header and verified the double SHA-256 hash.
+- Implemented the first M3 Difficulty History module with recent adjustment periods.
+- Added difficulty evolution, adjustment period ratios, and actual block time comparison against the 600-second target.
 
 ## Next Step
 
-- Start M3 Difficulty History and plot difficulty evolution over recent adjustment periods.
+- Create the first M4 AI Component skeleton and decide the AI approach.
 
 ## Main Problem or Blocker
 
