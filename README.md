@@ -28,15 +28,15 @@ Use one of these values: `Not started`, `In progress`, `Done`
 | M6 | Optional Security Score | Done |
 ## Current Progress
 
-- Implemented M1, M2, M3 and M4 in the Streamlit dashboard.
-- Added global automatic refresh with a 60-second polling interval.
+- Implemented M1, M2, M3 and M4 in the Streamlit dashboard using live Bitcoin data.
+- Added local Proof of Work verification using hashlib and reconstructed the 80-byte block header.
 - Implemented M4 as an anomaly detector for abnormal Bitcoin block inter-arrival times.
-- Added optional M6 Security Score with 51% attack cost estimation.
-- Added confirmation-depth risk visualisation based on Nakamoto's double-spend analysis.
+- Added global automatic refresh with a configurable 60-second polling interval.
+- Added optional M6 Security Score and included the final PDF report in the repository.
 
 ## Next Step
 
-- Prepare the final PDF report and perform final dashboard polish.
+- Final review before submission.
 
 ## Main Problem or Blocker
 
@@ -62,12 +62,15 @@ blockchain-dashboard-claudiacorona065/
 |-- api/
 |   |-- __init__.py
 |   `-- blockchain_client.py
-`-- modules/
-    |-- __init__.py
-    |-- m1_pow_monitor.py
-    |-- m2_block_header.py
-    |-- m3_difficulty_history.py
-    `-- m4_ai_component.py
+|-- modules/
+|   |-- __init__.py
+|   |-- m1_pow_monitor.py
+|   |-- m2_block_header.py
+|   |-- m3_difficulty_history.py
+|   |-- m4_ai_component.py
+|   `-- m6_security_score.py
+`-- report/
+    `-- CryptoChain_Analyzer_Extended_Final_Report.pdf
 
 <!-- student-repo-auditor:teacher-feedback:start -->
 ## Teacher Feedback
