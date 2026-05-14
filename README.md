@@ -21,21 +21,22 @@ Use one of these values: `Not started`, `In progress`, `Done`
 
 | Module | What it should include | Status |
 |---|---|---|
-| M1 | Proof of Work Monitor | In progress |
-| M2 | Block Header Analyzer | In progress |
-| M3 | Difficulty History | In progress |
-| M4 | AI Component | In progress |
+| M1 | Proof of Work Monitor | Done |
+| M2 | Block Header Analyzer | Done |
+| M3 | Difficulty History | Done |
+| M4 | AI Component | Done |
+| M6 | Optional Security Score | Done |
 ## Current Progress
 
-- Implemented M1, M2 and M3 in the Streamlit dashboard.
-- Added local Proof of Work verification using hashlib.
-- Implemented the first M4 AI component as an anomaly detector.
-- Used an exponential distribution baseline for Bitcoin block inter-arrival times.
-- Added AI model evaluation with anomaly rate and negative log-likelihood.
+- Implemented M1, M2, M3 and M4 in the Streamlit dashboard.
+- Added global automatic refresh with a 60-second polling interval.
+- Implemented M4 as an anomaly detector for abnormal Bitcoin block inter-arrival times.
+- Added optional M6 Security Score with 51% attack cost estimation.
+- Added confirmation-depth risk visualisation based on Nakamoto's double-spend analysis.
 
 ## Next Step
 
-- Add automatic dashboard refresh and improve final visual polish.
+- Prepare the final PDF report and perform final dashboard polish.
 
 ## Main Problem or Blocker
 
